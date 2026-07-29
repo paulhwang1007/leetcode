@@ -1,25 +1,35 @@
-# Last updated: 7/28/2026, 11:38:16 PM
-1class Solution:
-2    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-3        freq = {}
-4        buckets = [[] for i in range(len(nums) + 1)]
-5        topK = []
-6
-7        # get frequencies
-8        # { num: freq }
-9        for num in nums:
-10            if num not in freq:
-11                freq[num] = 0
-12            freq[num] += 1
-13        
-14        # append numbers to bucket
-15        for num, count in freq.items():
-16            buckets[count].append(num)
-17        
-18        # return top k
-19        for bucket in range(len(buckets) - 1, 0, -1):
-20            for num in buckets[bucket]:
-21                topK.append(num)
-22
-23                if len(topK) == k:
-24                    return topK
+# Last updated: 7/29/2026, 12:05:04 AM
+1# Definition for singly-linked list.
+2# class ListNode:
+3#     def __init__(self, val=0, next=None):
+4#         self.val = val
+5#         self.next = next
+6class Solution:
+7    def reorderList(self, head: Optional[ListNode]) -> None:
+8        """
+9        Do not return anything, modify head in-place instead.
+10        """
+11        # find the midpoint of the list
+12        slow, fast = head, head.next
+13
+14        while fast and fast.next:
+15            slow = slow.next
+16            fast = fast.next.next
+17
+18        # reverse the second half
+19        second = slow.next
+20        prev = None
+21        slow.next = None
+22        while second:
+23            next_node = second.next
+24            second.next = prev
+25            prev = second
+26            second = next_node
+27
+28        # merge the lists
+29        first, second = head, prev
+30        while second:
+31            next_1, next_2 = first.next, second.next
+32            first.next = second
+33            second.next = next_1
+34            first, second = next_1, next_2
