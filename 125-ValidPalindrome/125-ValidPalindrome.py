@@ -1,18 +1,14 @@
-# Last updated: 7/26/2026, 3:53:25 PM
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        s_lower = s.lower()
-        s = ''.join(char for char in s_lower if char.isalnum())
-
-        i, j = 0, len(s) - 1
-
-        if len(s) == 0:
-            return True
-
-        while i <= j:
-            if s[i] != s[j]:
-                return False
-            i += 1
-            j -= 1
-        return True
-            
+# Last updated: 7/30/2026, 12:06:58 AM
+1class Solution:
+2    def isPalindrome(self, s: str) -> bool:
+3        lower = s.lower()
+4        string = "".join(char for char in lower if char.isalnum())
+5
+6        start, end = 0, len(string) - 1
+7
+8        while start <= end:
+9            if string[start] != string[end]:
+10                return False
+11            start += 1
+12            end -= 1
+13        return True
