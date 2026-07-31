@@ -1,15 +1,13 @@
-# Last updated: 7/30/2026, 11:28:52 AM
+# Last updated: 7/31/2026, 1:33:22 PM
 1class Solution:
-2    def search(self, nums: List[int], target: int) -> int:
-3        left, right = 0, len(nums) - 1
-4
-5        while left <= right:
-6            mid = (left + right) // 2
-7
-8            if nums[mid] == target:
-9                return mid
-10            elif nums[mid] < target:
-11                left = mid + 1
-12            else:
-13                right = mid - 1
-14        return -1
+2    def isValid(self, s: str) -> bool:
+3        brackets = { "(": ")", "{": "}", "[": "]" }
+4        stack = []
+5
+6        for bracket in s:
+7            if bracket in brackets:
+8                stack.append(bracket)
+9            elif len(stack) == 0 or brackets[stack.pop()] != bracket:
+10                return False
+11        return len(stack) == 0
+12
