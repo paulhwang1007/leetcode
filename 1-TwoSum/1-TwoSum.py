@@ -1,16 +1,11 @@
-# Last updated: 6/13/2025, 1:52:37 PM
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-
-        seen = {}
-        for i in range(len(nums)):
-            diff = target - nums[i]
-            if diff in seen:
-                return [seen[diff], i]
-            else:
-                seen[nums[i]] = i
+# Last updated: 8/1/2026, 1:25:34 PM
+1class Solution:
+2    def twoSum(self, nums: List[int], target: int) -> List[int]:
+3        hash = {}
+4
+5        for i in range(len(nums)):
+6            diff = target - nums[i]
+7            if diff in hash:
+8                return [hash[diff], i]
+9            else:
+10                hash[nums[i]] = i
