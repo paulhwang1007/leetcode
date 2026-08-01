@@ -1,4 +1,4 @@
-# Last updated: 8/1/2026, 1:25:34 PM
+# Last updated: 8/1/2026, 1:26:21 PM
 1class Solution:
 2    def twoSum(self, nums: List[int], target: int) -> List[int]:
 3        hash = {}
